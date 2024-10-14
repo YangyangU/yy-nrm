@@ -81,9 +81,8 @@ function listCustomRegistries() {
         console.log('没有自定义的源');
         return;
     }
-    console.log('自定义源列表:');
     Object.entries(customRegistries).forEach(([name, url]) => {
-        console.log(`${name}: ${url}`);
+        console.log(`${name}: ${typeof url === 'string' ? url : JSON.stringify(url)}`);
     });
 }
 
