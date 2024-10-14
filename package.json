@@ -25,6 +25,7 @@
     "url": "https://github.com/YangyangU/yy-nrm/issues"
   },
   "dependencies": {
-    "commander": "^12.1.0"
+    "commander": "^12.1.0",
+    "inquirer": "^12.0.0"
   }
 }

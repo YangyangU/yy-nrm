@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 
 const { program } = require('commander');
-const { 
+const {
     getCurrentRegistry,
     setRegistry,
     addCustomRegistry,
     deleteCustomRegistry,
     useRegistry,
     listCustomRegistries,
- } = require('./actions.js');
+    selectRegistry
+} = require('./actions.js');
 
 // 定义命令行选项和操作
 program
-    .version('1.0.0')
+    .version('1.0.4')
     .description('NPM 源切换工具');
 
 // 查看当前源
@@ -25,7 +26,14 @@ program
 program
     .command('ls')
     .description('查看所有源')
-    .action(listCustomRegistries);
+    .option('-k, --keyword', '使用键盘选择源')
+    .action((options) => {
+        if (options.keyboard) {
+            selectRegistry();
+        } else {
+            listCustomRegistries();
+        }
+    });
 
 // 切换到常用源
 program
@@ -52,5 +60,11 @@ program
     .command('del <name>')
     .description('删除自定义源')
     .action(deleteCustomRegistry);
+
+// 键盘选择源
+program
+    .command('select')
+    .description('键盘选择源')
+    .action(selectRegistry)
 
 program.parse(process.argv);

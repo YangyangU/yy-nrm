@@ -1,6 +1,7 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const inquirer = require('inquirer');
 
 const registryPath = path.join(__dirname, 'custom.json');
 
@@ -14,7 +15,7 @@ function getCurrentRegistry() {
     }
 }
 
-// 切换 npm 源
+// 切换自定义源
 function setRegistry(url) {
     try {
         execSync(`npm config set registry ${url}`);
@@ -63,9 +64,9 @@ function deleteCustomRegistry(name) {
     console.log(`删除自定义源: ${name}`);
 }
 
-// 切换到自定义源或默认源
+// 切换到已有源
 function useRegistry(source) {
-    const registries = { ...loadCustomRegistries() };
+    const registries = loadCustomRegistries();
     const registry = registries[source];
     if (registry) {
         setRegistry(registry);
@@ -86,6 +87,26 @@ function listCustomRegistries() {
     });
 }
 
+function selectRegistry() {
+    const customRegistries = loadCustomRegistries();
+    const choices = Object.entries(customRegistries).map((name) => ({
+        name: name,
+        value: name,
+    }));
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'name',
+                message: '选择你要切换的源：',
+                choices: choices,
+            },
+        ])
+        .then((answers) => {
+            console.log(`你选择了: ${answers.name}`);
+            useRegistry(answers.name);
+        });
+}
 
 module.exports = {
     getCurrentRegistry,
@@ -94,4 +115,5 @@ module.exports = {
     deleteCustomRegistry,
     useRegistry,
     listCustomRegistries,
+    selectRegistry
 }
