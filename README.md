@@ -46,10 +46,10 @@ nrm select
 
 ### 切换到自定义源
 ```bash
-nrm use <registry>
+nrm custom <registry>
 
 #示例
-nrm use https://registry.npm.taobao.org
+nrm custom https://registry.npm.taobao.org
 ```
 
 ### 新增源
@@ -57,7 +57,7 @@ nrm use https://registry.npm.taobao.org
 nrm add <registry> <url>
 
 #示例
-nrm add myregistry https://registry.npm.taobao.org
+nrm add taobao https://registry.npm.taobao.org
 ```
 
 ### 删除源
@@ -65,7 +65,7 @@ nrm add myregistry https://registry.npm.taobao.org
 nrm del <registry>
 
 #示例
-nrm del myregistry
+nrm del taobao
 ```
 
 ## 默认源列表
