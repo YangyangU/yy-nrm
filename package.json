@@ -1,6 +1,6 @@
 {
   "name": "yy-nrm",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "阳阳换源工具",
   "bin": {
     "nrm": "./index.js"
