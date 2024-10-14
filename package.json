@@ -1,12 +1,31 @@
 {
   "name": "yy-nrm",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "阳阳换源工具",
+  "bin": {
+    "nrm": "./index.js"
+  },
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nrm",
+    "npm",
+    "registry",
+    "manager",
+    "yy"
+  ],
+  "author": "YangyangU",
   "license": "ISC",
-  "description": ""
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YangyangU/yy-nrm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YangyangU/yy-nrm/issues"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
 }
