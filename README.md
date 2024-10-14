@@ -13,30 +13,56 @@
 npm install -g yy-nrm
 ```
 
-## 示例
+## 操作
 
+### 查看当前使用的源
 ```bash
-nrm current  # 查看当前使用的源
-nrm ls  # 列出所有可用的源
-nrm use taobao  # 切换到淘宝源
-nrm add taobao https://registry.npm.taobao.org/  # 添加淘宝源
-nrm del taobao  # 删除淘宝源
+nrm current
 ```
 
-## 配置
+### 列出所有可用的源
+```bash
+nrm ls
+```
 
+### 切换到已有源
+```bash
+nrm use <registry>
+
+#示例
+nrm use taobao
+```
+
+### 切换到已有源（键盘选择）
+```bash
+nrm select
+```
+
+### 切换到自定义源
+```bash
+nrm use <registry>
+
+#示例
+nrm use https://registry.npm.taobao.org
+```
+
+### 新增源
 ```bash
 nrm add <registry> <url>
-nrm del <registry>
+
+#示例
+nrm add myregistry https://registry.npm.taobao.org
 ```
 
-## 切换
-
+### 删除源
 ```bash
-yy-nrm use <registry>
+nrm del <registry>
+
+#示例
+nrm del myregistry
 ```
 
-## 列表
+## 默认源列表
 
 ```bash
 npm ---------- https://registry.npmjs.org/

@@ -13,7 +13,7 @@ const {
 
 // 定义命令行选项和操作
 program
-    .version('1.0.4')
+    .version('1.0.5')
     .description('NPM 源切换工具');
 
 // 查看当前源

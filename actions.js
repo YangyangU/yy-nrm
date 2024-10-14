@@ -37,7 +37,6 @@ function loadCustomRegistries() {
 // 保存自定义源配置
 function saveCustomRegistries(registries) {
     fs.writeFileSync(registryPath, JSON.stringify(registries, null, 2), 'utf8');
-    console.log('自定义源已保存');
 }
 
 // 添加自定义源
@@ -87,26 +86,27 @@ function listCustomRegistries() {
     });
 }
 
+// 键盘选择源
 function selectRegistry() {
+    const prompt = inquirer.createPromptModule()
     const customRegistries = loadCustomRegistries();
-    const choices = Object.entries(customRegistries).map((name) => ({
-        name: name,
-        value: name,
-    }));
-    inquirer
-        .prompt([
-            {
-                type: 'list',
-                name: 'name',
-                message: '选择你要切换的源：',
-                choices: choices,
-            },
-        ])
+    const choices = Object.keys(customRegistries)
+    prompt([
+        {
+            type: 'list',
+            name: 'name',
+            message: '选择你要切换的源：',
+            choices: choices,
+        },
+    ])
         .then((answers) => {
-            console.log(`你选择了: ${answers.name}`);
             useRegistry(answers.name);
-        });
+        })
+        .catch((error) => {
+            console.error(error.message);
+        })
 }
+
 
 module.exports = {
     getCurrentRegistry,
