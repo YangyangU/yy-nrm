@@ -1,5 +1,6 @@
 ## 功能
 
+- 查看当前使用的源
 - 列出所有可用的源
 - 切换到指定的源
 - 添加新的源
@@ -14,15 +15,18 @@ npm install -g yy-nrm
 ## 示例
 
 ```bash
-yy-nrm ls
-yy-nrm use taobao
+nrm current  # 查看当前使用的源
+nrm ls  # 列出所有可用的源
+nrm use taobao  # 切换到淘宝源
+nrm add taobao https://registry.npm.taobao.org/  # 添加淘宝源
+nrm del taobao  # 删除淘宝源
 ```
 
 ## 配置
 
 ```bash
-yy-nrm add <registry> <url>
-yy-nrm del <registry>
+nrm add <registry> <url>
+nrm del <registry>
 ```
 
 ## 切换
