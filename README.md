@@ -1,11 +1,17 @@
+## 介绍
+
+`yy-nrm`是一款 npm 源管理工具，它可以帮助你轻松地管理和切换 npm 源。
+
 ## 功能
 
 - 查看当前使用的源
 - 列出所有可用的源
 - 切换到指定的源
+  - 指定源名
+  - 键盘选择
+  - 自定义源
 - 添加新的源
 - 删除源
-- 键盘选择源
 
 ## 安装
 
@@ -71,4 +77,5 @@ tencent ------ https://mirrors.cloud.tencent.com/npm/
 cnpm --------- https://r.cnpmjs.org/
 taobao ------- https://registry.npmmirror.com/
 npmMirror ---- https://skimdb.npmjs.com/registry/
+huawei ------- https://repo.huaweicloud.com/repository/npm/
 ```
