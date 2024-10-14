@@ -26,14 +26,7 @@ program
 program
     .command('ls')
     .description('查看所有源')
-    .option('-k, --keyword', '使用键盘选择源')
-    .action((options) => {
-        if (options.keyboard) {
-            selectRegistry();
-        } else {
-            listCustomRegistries();
-        }
-    });
+    .action(listCustomRegistries);
 
 // 切换到常用源
 program
