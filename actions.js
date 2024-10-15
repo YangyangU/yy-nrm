@@ -1,7 +1,7 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-const inquirer = require('inquirer');
+const { select } = require('@inquirer/prompts');
 
 const registryPath = path.join(__dirname, 'custom.json');
 
@@ -87,24 +87,14 @@ function listCustomRegistries() {
 }
 
 // 键盘选择源
-function selectRegistry() {
-    const prompt = inquirer.createPromptModule()
+async function selectRegistry() {
     const customRegistries = loadCustomRegistries();
     const choices = Object.keys(customRegistries)
-    prompt([
-        {
-            type: 'list',
-            name: 'name',
-            message: '选择你要切换的源：',
-            choices: choices,
-        },
-    ])
-        .then((answers) => {
-            useRegistry(answers.name);
-        })
-        .catch((error) => {
-            console.error(error.message);
-        })
+    const answer = await select({
+        message: '选择你要切换的源：',
+        choices,
+    })
+    useRegistry(answer);
 }
 
 
